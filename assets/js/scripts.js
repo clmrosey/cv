@@ -31,8 +31,13 @@ jQuery(function ($) {
 
     $(window).ready(function() {
         $('#pre-status').fadeOut();
-        $('#tt-preloader').delay(350).fadeOut('slow');
+        $('#tt-preloader').delay(100).fadeOut('slow');
     });
+
+    /*$(window).on('load', function() { // makes sure the whole site is loaded
+			$('#pre-status').fadeOut(); // will first fade out the loading animation
+            $('#tt-preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(350).css({'overflow':'visible'});*/
 
 
 
@@ -122,7 +127,7 @@ jQuery(function ($) {
     // -------------------------------------------------------------
     // Progress Bar
     // -------------------------------------------------------------
- 
+
     $('.skill-progress').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
         if (visible) {
             $.each($('div.progress-bar'),function(){
@@ -131,7 +136,7 @@ jQuery(function ($) {
             $(this).unbind('inview');
         }
     });
-    
+
     // -------------------------------------------------------------
     // More skill
     // -------------------------------------------------------------
@@ -234,10 +239,10 @@ jQuery(function ($) {
     // -------------------------------------------------------------
     // Vidio auto play
     // -------------------------------------------------------------
-    (function () {
-    
-    /* Vimeo API: http://developer.vimeo.com/player/js-api */
-    
+    /*(function () {
+
+    /* Vimeo API: http://developer.vimeo.com/player/js-api
+
         var iframe = document.getElementById('nofocusvideo');
         // $f == Froogaloop
         var player = $f(iframe);
@@ -249,7 +254,7 @@ jQuery(function ($) {
         $('.modal').on('shown.bs.modal', function () {
         player.api('play');
         })
-    }());
+    }());*/
 
 
 
@@ -261,7 +266,7 @@ jQuery(function ($) {
     $(window).load(function() {
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-         
+
         }else {
             $.stellar({
                 horizontalScrolling: false,
@@ -393,8 +398,3 @@ jQuery(function ($) {
 
 
 });
-
-
-
-
-
