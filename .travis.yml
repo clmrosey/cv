@@ -1,14 +1,7 @@
-
-
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq postfix
-
-before_script:
-  - sudo service postfix stop
-  - smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
-  - echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail
-  - echo 'sendmail_path = "/usr/sbin/sendmail -t -i "' | sudo tee "/home/travis/.phpenv/versions/`php -i | grep "PHP Version" | head -n 1 | grep -o -P '\d+\.\d+\.\d+.*'`/etc/conf.d/sendmail.ini"
-
-notifications:
-  email: false
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
